@@ -3,54 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Boca Fútbol</title>
 
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f3f6;
+            color: #111;
+        }
+
+        /* HEADER */
+
         header {
-            background: #0b3d91;
+            background: #082f6b;
             color: white;
-            padding: 20px;
+            padding: 18px 15px;
             text-align: center;
         }
 
         header h1 {
             margin: 0;
+            font-size: 28px;
         }
 
+        header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        /* MENU */
+
         nav {
-            background: #06265c;
-            padding: 12px;
-            text-align: center;
+            background: #061f47;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 13px 10px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px;
+            font-size: 14px;
+            font-weight: bold;
         }
+
+        /* CONTENIDO */
 
         main {
-            padding: 20px;
+            width: 100%;
             max-width: 900px;
             margin: auto;
+            padding: 15px;
         }
 
-        .tarjeta {
+        .titulo-seccion {
+            font-size: 21px;
+            margin: 20px 0 10px;
+        }
+
+        /* PARTIDO */
+
+        .partido {
             background: white;
+            border-radius: 12px;
             padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .tarjeta h2 {
-            color: #0b3d91;
+        .competencia {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
         }
+
+        .equipos {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .equipo {
+            width: 40%;
+            font-weight: bold;
+        }
+
+        .escudo {
+            width: 65px;
+            height: 65px;
+            margin: auto auto 8px;
+            background: #ddd;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 11px;
+        }
+
+        .vs {
+            font-size: 18px;
+            font-weight: bold;
+            color: #082f6b;
+        }
+
+        .fecha {
+            margin-top: 15px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* RESULTADOS */
+
+        .resultado {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .resultado span {
+            font-weight: bold;
+        }
+
+        .marcador {
+            color: #082f6b;
+            font-size: 18px;
+        }
+
+        /* JUGADORES */
+
+        .jugadores {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .jugador {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .jugador strong {
+            display: block;
+            color: #082f6b;
+            margin-bottom: 5px;
+        }
+
+        .jugador small {
+            color: #666;
+        }
+
+        /* FOOTER */
+
+        footer {
+            margin-top: 30px;
+            background: #061f47;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+        /* CELULAR */
+
+        @media (max-width: 500px) {
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            nav {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .equipos {
+                gap: 5px;
+            }
+
+            .jugadores {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 
@@ -58,35 +212,144 @@
 
     <header>
         <h1>Boca Fútbol</h1>
-        <p>Todo sobre Boca y sus jugadores</p>
+        <p>Partidos, jugadores y todo el mundo Boca</p>
     </header>
 
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#">Partidos</a>
-        <a href="#">Jugadores</a>
-        <a href="#">Préstamos</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#partidos">Partidos</a>
+        <a href="#jugadores">Jugadores</a>
+        <a href="#prestamos">Préstamos</a>
     </nav>
 
     <main>
 
-        <div class="tarjeta">
-            <h2>Próximo partido</h2>
-            <p>Boca Juniors vs. Próximo rival</p>
-            <p>Fecha y hora próximamente</p>
-        </div>
+        <section id="inicio">
 
-        <div class="tarjeta">
-            <h2>Últimos resultados</h2>
-            <p>Todavía no hay resultados cargados.</p>
-        </div>
+            <h2 class="titulo-seccion">
+                Próximo partido
+            </h2>
 
-        <div class="tarjeta">
-            <h2>Jugadores de Boca</h2>
-            <p>Plantel actual, jugadores cedidos y exjugadores.</p>
-        </div>
+            <div class="partido">
+
+                <div class="competencia">
+                    PRÓXIMAMENTE
+                </div>
+
+                <div class="equipos">
+
+                    <div class="equipo">
+                        <div class="escudo">
+                            BOCA
+                        </div>
+                        Boca Juniors
+                    </div>
+
+                    <div class="vs">
+                        VS
+                    </div>
+
+                    <div class="equipo">
+                        <div class="escudo">
+                            ?
+                        </div>
+                        Próximo rival
+                    </div>
+
+                </div>
+
+                <div class="fecha">
+                    Fecha y hora próximamente
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="partidos">
+
+            <h2 class="titulo-seccion">
+                Últimos resultados
+            </h2>
+
+            <div class="resultado">
+
+                <span>Boca Juniors</span>
+
+                <span class="marcador">
+                    - : -
+                </span>
+
+                <span>Rival</span>
+
+            </div>
+
+            <div class="resultado">
+
+                <span>Boca Juniors</span>
+
+                <span class="marcador">
+                    - : -
+                </span>
+
+                <span>Rival</span>
+
+            </div>
+
+        </section>
+
+
+        <section id="jugadores">
+
+            <h2 class="titulo-seccion">
+                Jugadores
+            </h2>
+
+            <div class="jugadores">
+
+                <div class="jugador">
+                    <strong>Plantel de Boca</strong>
+                    <small>Jugadores actuales</small>
+                </div>
+
+                <div class="jugador">
+                    <strong>Jugadores cedidos</strong>
+                    <small>Jugadores de Boca a préstamo</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="prestamos">
+
+            <h2 class="titulo-seccion">
+                Mundo Boca
+            </h2>
+
+            <div class="jugador">
+
+                <strong>
+                    Jugadores de Boca por el mundo
+                </strong>
+
+                <small>
+                    Acá vamos a mostrar los partidos de los jugadores
+                    de Boca que están cedidos en otros clubes.
+                </small>
+
+            </div>
+
+        </section>
 
     </main>
+
+
+    <footer>
+        Boca Fútbol — Proyecto independiente
+    </footer>
 
 </body>
 </html>
